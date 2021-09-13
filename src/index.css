@@ -1,13 +1,111 @@
+html {
+  --dark-navy: #020c1b;
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
+  --dark-slate: #495670;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --green: #64ffda;
+  --green-tint: rgba(100, 255, 218, 0.1);
+  --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --font-sans: "Calibre", "San Francisco", "SF Pro Text", -apple-system,
+    system-ui, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  --font-dance: "Dancing Script", cursive;
+}
+/*
+:root {
+  --dark-navy: #020c1b;
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
+  --dark-slate: #495670;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --green: #64ffda;
+  --green-tint: rgba(100, 255, 218, 0.1);
+  --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  --font-sans: "Calibre", "San Francisco", "SF Pro Text", -apple-system,
+    system-ui, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  --font-dance: "Dancing Script", cursive;
+} */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* colour theme during dark mode */
+main {
+  min-height: 100vh;
+}
+
+.dark-mode {
+  background-color: var(--dark-navy);
+  color: var(--slate);
+  --background: var(--dark-navy);
+  --highlight: var(--green);
+}
+/* colour theme during light mode */
+.light-mode {
+  background-color: var(--slate);
+  color: var(--dark-navy);
+  --background: var(--slate);
+  --highlight: var(--navy);
+}
+
+.hightlight {
+  color: var(--highlight);
+}
+
+.secondary{
+  color:var(--lightest-slate);
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 5px 0px !important;
+  padding: 0px !important;
+  display: flex;
+
+  align-items: center;
+}
+
+h5 {
+  font-size: clamp(5px, 1.5rem, 20px);
+}
+
+h4 {
+  font-size: clamp(10px, 1.8rem, 40px);
+}
+
+h3 {
+  font-size: clamp(20px, 3rem, 50px);
+}
+h2 {
+  font-size: clamp(50px, 3.5rem, 80px);
+}
+h1 {
+  font-size: 4rem;
 }

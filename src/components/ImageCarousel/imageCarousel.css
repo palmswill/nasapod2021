@@ -1,0 +1,17 @@
+.carousel .card-container{
+    padding:0px 10px;
+    
+    
+}
+
+/* .carousel .card-container>*{
+    position:absolute;
+
+} */
+
+.carousel img,.carousel iframe{
+    height:350px;
+    width:350px;
+    object-fit:cover;
+    
+}
