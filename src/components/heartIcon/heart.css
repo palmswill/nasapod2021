@@ -1,30 +1,26 @@
-
-
-
-
 .heart-container {
-    /* default heart size */
+  /* default heart size */
   --heart-size: 80px;
   position: relative;
   display: inline-block;
   width: calc(var(--heart-size) * 1.4);
   height: calc(var(--heart-size) * 1.4);
 }
-/* when heart is not liked, hovered will make them to like */
-.unliked:hover {
+
+
+@media (min-width: 480px) {
+  /* when heart is not liked, hovered will make them to like */
+  .unliked:hover {
     animation-name: like;
     cursor: pointer;
     animation: like 0.5s linear 1 forwards;
   }
-
-.liking{
-    animation: like 2s linear 1 forwards;
-
 }
+
+
 
 .liked {
   color: red;
-  
 }
 
 .heart {
@@ -54,3 +50,5 @@
     font-size: calc(var(--heart-size) * 1);
   }
 }
+
+

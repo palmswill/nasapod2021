@@ -5,7 +5,7 @@ const Selection = ({states,autoPlay}) => {
     const photoList=states.photoList;
 
     return (
-        <section id="selection" style={{height:"30vh"}}>
+        <section id="selection" style={{minHeight:"30vh"}}>
             <ImageCarousel photoList={photoList} autoPlay={autoPlay}/>
         </section>
     );

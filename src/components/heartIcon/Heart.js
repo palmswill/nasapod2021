@@ -2,6 +2,8 @@ import React from "react";
 import "./heart.css";
 
 const Heart = ({ size,liked,onClick }) => {
+  console.log("heart");
+  console.log(liked);
   
   return (
     <span className={`heart-container `} style={{ "--heart-size": size}} >

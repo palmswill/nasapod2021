@@ -20,6 +20,7 @@ const StateHOC = () => {
   const methods={setPhotoList,setIsLoading,SetisLightMode,setError,setIsSearching,setLikedList};
 
 
+
   useEffect(() => {
     getRandomAPOD(10).then((response) => {
       setPhotoList(response);
@@ -29,9 +30,9 @@ const StateHOC = () => {
   }, []);
 
   return (
-    <main className={isLightMode?("light-mode"):("dark-mode")}>
+    <div className={isLightMode?("light-mode"):("dark-mode")}>
       {isLoading?<LoadingPage/>:<MainPage states={states} methods={methods}/>}
-    </main>
+    </div>
     
     
     )

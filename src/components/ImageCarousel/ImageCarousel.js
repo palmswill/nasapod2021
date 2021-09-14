@@ -59,10 +59,9 @@ const ImageCarousel = ({ deviceType, photoList, methods,autoPlay }) => {
     <Carousel
       additionalTransfrom={0}
       arrows
-      autoPlay={autoPlay}
+      autoPlay={false}
       customTransition="all 1s linear"
       autoPlaySpeed={3000}
-      centerMode={true}
       className="carousel"
       containerClass="container"
       dotListClass=""

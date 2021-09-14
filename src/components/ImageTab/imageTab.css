@@ -1,16 +1,62 @@
+
+
+
 .image-tab {
-  position: fixed;
+  position: absolute;
   left: 10%;
   padding:10px;
   top: 10%;
-  z-index: 2000;
+  z-index: 20000;
   width: 80vw;
   border-radius:10px;
   min-height:50vh;
   background-color: var(--dark-slate);
   color: var(--slate);
+  
 }
 
 .highlight {
   color: var(--green);
+}
+
+.image-tab .explanation{
+  max-height:50vh ;
+  overflow-y:scroll;
+ 
+
+}
+
+
+.image-tab img{
+  max-height:30vh;
+}
+
+
+
+
+
+.image-tab .button-menu{
+  background-color:transparent !important;
+  width:100%;
+  border:none !important;
+
+}
+
+.image-tab .mobile-grid{
+  display:none !important;
+}
+
+
+
+
+
+@media (max-width:480px){
+  .image-tab .desktop-grid{
+    display:none !important;
+  }
+  .image-tab .mobile-grid{
+    display:block !important;
+  }
+  
+
 }
