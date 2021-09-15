@@ -65,7 +65,9 @@ body {
 @media (max-width:480px){
   .light-mode,
 .dark-mode {
-  min-height: 110vh;
+  position:fixed;
+  width:100vw;
+  height:100vh;
 }
 
 }

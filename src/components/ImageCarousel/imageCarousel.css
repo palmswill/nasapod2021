@@ -12,6 +12,7 @@
 .carousel img,.carousel iframe{
     height:40vh;
     width:30vw;
+    margin:auto;
     object-fit:cover;
     
 }

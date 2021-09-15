@@ -27,10 +27,11 @@
 }
 
 
-.image-tab img{
-  max-height:30vh;
-}
 
+.image-tab img{
+  max-height:50vh;
+  margin:auto;
+}
 
 
 
@@ -56,6 +57,12 @@
   }
   .image-tab .mobile-grid{
     display:block !important;
+  }
+
+  
+
+  .image-tab img{
+    max-height:25vh;
   }
   
 
