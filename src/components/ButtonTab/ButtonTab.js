@@ -3,9 +3,8 @@ import { Menu, Button } from "semantic-ui-react";
 import Heart from "../heartIcon/Heart";
 import { useHistory } from "react-router";
 
-const ButtonTab = ({onHeartClick,heartLiked}) => {
+const ButtonTab = ({onHeartClick,heartLiked,closeButton,date}) => {
   const history = useHistory();
-  console.log(heartLiked);
   return (
     <div className="button-tab">
       <Menu borderless className={"button-menu"}>
@@ -20,14 +19,22 @@ const ButtonTab = ({onHeartClick,heartLiked}) => {
           </h5>
         </Menu.Item>
         <Menu.Item position="right">
-          <Button
+          {closeButton?<Button
             className="close-button"
             basic
             inverted
             onClick={() => history.push(process.env.PUBLIC_URL)}
           >
             close
-          </Button>
+          </Button>:<Button
+            className="close-button"
+            basic
+            inverted
+            onClick={() => history.push(`${process.env.PUBLIC_URL}/${date}`)}
+          >
+            details
+          </Button>}
+          
         </Menu.Item>
       </Menu>
     </div>

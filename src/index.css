@@ -41,36 +41,39 @@ body {
 /* colour theme during dark mode */
 .light-mode,
 .dark-mode {
-  min-height: 100vh;
+  position: fixed;
+    width: 100vw;
+    height: 100vh;
 }
 
-
-
-
 .dark-mode {
-  background-color: var(--dark-navy);
-  color: var(--slate);
+  --text-color: var(--slate);
   --background: var(--dark-navy);
   --highlight: var(--green);
+
+  color: var(--text-color);
+  background-color: var(--background);
 }
 /* colour theme during light mode */
 .light-mode {
-  background-color: var(--slate);
-  color: var(--dark-navy);
+  
   --background: var(--slate);
   --highlight: var(--navy);
+  --text-color:var(var(--dark-navy));
+
+  background-color: var(--background);
+  color: var(--text-color);
+  
 }
 
-
-@media (max-width:480px){
+/* @media (max-width: 480px) {
   .light-mode,
-.dark-mode {
-  position:fixed;
-  width:100vw;
-  height:100vh;
-}
-
-}
+  .dark-mode {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+} */
 
 .hightlight {
   color: var(--highlight);
@@ -102,15 +105,15 @@ h5 {
 }
 
 h4 {
-  font-size: clamp(10px, 1.7vw, 30px) !important;
+  font-size: clamp(10px, 1.7vw, 20px) !important;
 }
 
 h3 {
-  font-size: clamp(15px, 2vw, 50px) !important;
+  font-size: clamp(15px, 2vw, 30px) !important;
 }
 h2 {
-  font-size: clamp(10px, 2vw, 30px) !important;
+  font-size: clamp(25px, 2.5vw, 50px) !important;
 }
 h1 {
-  font-size: clamp(20px, 3.5vw, 40px) !important;
+  font-size: clamp(30px, 3.5vw, 80px) !important;
 }

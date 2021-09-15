@@ -1,12 +1,13 @@
 import React from 'react';
 import ImageCarousel from '../../../components/ImageCarousel/ImageCarousel';
 
-const Selection = ({states,autoPlay}) => {
-    const photoList=states.photoList;
+const Selection = ({states,methods,autoPlay}) => {
+    const {photoList,likedList}=states;
+    const {setLikedList}=methods;
 
     return (
         <section id="selection" style={{minHeight:"30vh"}}>
-            <ImageCarousel photoList={photoList} autoPlay={autoPlay}/>
+            <ImageCarousel setLikedList={setLikedList} likedList={likedList} photoList={photoList} autoPlay={autoPlay}/>
         </section>
     );
 }

@@ -4,21 +4,25 @@ import "react-multi-carousel/lib/styles.css";
 import { Image } from "semantic-ui-react";
 import "./imageCarousel.css";
 import { useHistory } from "react-router";
+import ButtonTab from "../ButtonTab/ButtonTab";
 
-const ImageCarousel = ({ deviceType, photoList, methods,autoPlay }) => {
+const ImageCarousel = ({ likedList, photoList, setLikedList,autoPlay }) => {
   const history = useHistory();
 
-  const displayCard = (info, index) => {
-    const { title, url, date, media_type } = info;
+  const displayCard = (photo, index) => {
+    const { title, url, date, media_type } = photo;
+    const liked = likedList.filter((item) => item.date === date).length;
     return (
       <div key={title + index} className="card-container">
         <div className="card">
-          <h4 className="hightlight" style={{height:"40px"}}>{title}</h4>
-          <h5>{date}</h5>
+          <h4 className="title hightlight desktop" >{title}</h4>
+          <h5 className="desktop">{date}</h5>
+          <h2 className="title hightlight mobile" >{title}</h2>
+          <h3 className="mobile">{date}</h3>
           {media_type ===
             "image"?(
               <Image
-                onClick={() => history.push(`./${date}`)}
+                onClick={() => history.push(`${process.env.PUBLIC_URL}/${date}`)}
                 className="carousel-image"
                 draggable={false}
                 style={{ display: "block" }}
@@ -26,6 +30,17 @@ const ImageCarousel = ({ deviceType, photoList, methods,autoPlay }) => {
                 alt={title}
               />
             ):(<iframe src={url} title={title}/>)}
+            <ButtonTab
+            date={date}
+                onHeartClick={() =>
+                  setLikedList(
+                    liked
+                      ? likedList.filter((item) => item.date !== date)
+                      : [...likedList, photo]
+                  )
+                }
+                heartLiked={liked}
+              />
         </div>
       </div>
     );
@@ -37,7 +52,7 @@ const ImageCarousel = ({ deviceType, photoList, methods,autoPlay }) => {
         max: 3000,
         min: 1024,
       },
-      items: 3,
+      items: 5,
     },
     mobile: {
       breakpoint: {

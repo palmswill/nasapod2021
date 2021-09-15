@@ -20,15 +20,16 @@
 }
 
 .image-tab .explanation{
-  max-height:50vh ;
-  overflow-y:scroll;
+  overflow-wrap:anywhere;
  
 
 }
 
 
 
-.image-tab img{
+.image-tab img,.image-tab iframe{
+  width:100%;
+  object-fit:cover;
   max-height:50vh;
   margin:auto;
 }

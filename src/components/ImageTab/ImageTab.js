@@ -48,38 +48,18 @@ const ImageTab = ({ targetDate, likedList, setLikedList }) => {
             <Grid.Column width={10}>
               <h2 className="highlight">{title}</h2>
               <h4>{date}</h4>
-              <h4 className="secondary explanation">{explanation}</h4>
-              <div className="button-tab">
-                <Menu borderless className={"button-menu"}>
-                  <Menu.Item>
-                    <h5 className="secondary like-section">
-                      <Heart
-                        size={"50px"}
-                        liked={liked}
-                        // if liked, click to filter item out of likedlist, if not liked, click to add in the likedlist
-                        onClick={() =>
-                          setLikedList(
-                            liked
-                              ? likedList.filter((item) => item.date !== date)
-                              : [...likedList, photo]
-                          )
-                        }
-                      />
-                    </h5>
-                  </Menu.Item>
-                  <Menu.Item position="right">
-                    <Button
-                      className="close-button"
-                      basic
-                      inverted
-                      floated={"right"}
-                      onClick={() => history.push(process.env.PUBLIC_URL)}
-                    >
-                      close
-                    </Button>
-                  </Menu.Item>
-                </Menu>
-              </div>
+              <h5 className="secondary explanation">{explanation}</h5>
+              <ButtonTab
+                closeButton
+                onHeartClick={() =>
+                  setLikedList(
+                    liked
+                      ? likedList.filter((item) => item.date !== date)
+                      : [...likedList, photo]
+                  )
+                }
+                heartLiked={liked}
+              />
             </Grid.Column>
           </Grid>
           {/* grid for mobile */}
@@ -92,8 +72,9 @@ const ImageTab = ({ targetDate, likedList, setLikedList }) => {
               )}
               <h2 className="highlight">{title}</h2>
               <h4>{date}</h4>
-              <h4 className="secondary explanation">{explanation}</h4>
+              <h3 className="secondary explanation">{explanation}</h3>
               <ButtonTab
+                closeButton
                 onHeartClick={() =>
                   setLikedList(
                     liked
@@ -112,7 +93,7 @@ const ImageTab = ({ targetDate, likedList, setLikedList }) => {
 
   return (
     <div className="image-tab">
-      <h1 className="highlight header">Historical Picture Of The Day</h1>
+      <h3 className="highlight header">Historical Picture Of The Day</h3>
       {handleResult()}
     </div>
   );

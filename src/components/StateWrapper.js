@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { getRandomAPOD } from "../methods/getNasaAPOD";
 import LoadingPage from "../pages/LoadingPage";
 import MainPage from "../pages/MainPage/MainPage";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-const StateHOC = () => {
+const StateWrapper = () => {
   // the photoList displayed as carousel
   const [photoList, setPhotoList] = useState([]);
   // wheather the group search for caresoul is loading or not
@@ -23,19 +24,26 @@ const StateHOC = () => {
 
   useEffect(() => {
     getRandomAPOD(10).then((response) => {
+      console.log("loaded");
       setPhotoList(response);
       setIsLoading(false);
+    }).catch((err)=>{
+      console.log(err);
+      setError(true);
     });
 
   }, []);
 
   return (
     <div className={isLightMode?("light-mode"):("dark-mode")}>
-      {isLoading?<LoadingPage/>:<MainPage states={states} methods={methods}/>}
+      <Router>
+      <Route exact path="/:date?" children={isLoading?<LoadingPage/>:<MainPage states={states} methods={methods}/>}/>
+      </Router>
     </div>
     
     
     )
 };
 
-export default StateHOC;
+
+export default StateWrapper;
