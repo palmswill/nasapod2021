@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getRandomAPOD } from "../methods/getNasaAPOD";
-import LoadingPage from "../pages/LoadingPage";
+import axios from "axios";
+import LoadingPage from "../pages/LoadingPage/LoadingPage";
 import MainPage from "../pages/MainPage/MainPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -11,7 +12,7 @@ const StateWrapper = () => {
   const [isLoading, setIsLoading] = useState(true);
   // light or dark mode
   const [isLightMode,SetisLightMode]=useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
   // list of liked dates APOD
   const [likedList,setLikedList]=useState([]);
   // is the search bar running
@@ -20,7 +21,7 @@ const StateWrapper = () => {
   const states={photoList,isLoading,isLightMode,error,isSearching,likedList};
   const methods={setPhotoList,setIsLoading,SetisLightMode,setError,setIsSearching,setLikedList};
 
-
+console.log(process.env.PUBLIC_URL);
 
   useEffect(() => {
     getRandomAPOD(10).then((response) => {
@@ -29,15 +30,20 @@ const StateWrapper = () => {
       setIsLoading(false);
     }).catch((err)=>{
       console.log(err);
+      setIsLoading(false);
       setError(true);
     });
+    return       axios.CancelToken.source().cancel();
+
 
   }, []);
 
   return (
     <div className={isLightMode?("light-mode"):("dark-mode")}>
       <Router>
-      <Route exact path="/:date?" children={isLoading?<LoadingPage/>:<MainPage states={states} methods={methods}/>}/>
+      <Route exact path="/:date?" children={(isLoading)?<LoadingPage/>:error?<div>opps, something went wrong</div>:<MainPage states={states} methods={methods}/>}/>
+      {/* <Route exact path="/:date?" children={<LoadingPage/>}/> */}
+
       </Router>
     </div>
     

@@ -1,0 +1,61 @@
+.typewriter-text {
+  background:var(--background);
+  margin:0;
+  position: relative;
+  height:max-content;
+  font-size: clamp(1rem, 5vw + 1rem, 5rem) !important;
+  font-family: "Source Code Pro", monospace !important;
+  width: max-content;
+  --typewriterSpeed: 6s;
+}
+
+.typewriter-text::before,
+.typewriter-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.typewriter-text::before {
+  background: var(--background);
+  animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s var(--playType);
+}
+
+.typewriter-text:after {
+  width: 0.125em;
+  top:50%;
+  transform:translateY(-50%);
+  height:80%;
+  background: white;
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s var(--playType),
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+.typewriter-text-inactive{
+  background:var(--background);
+  margin:0;
+  position: relative;
+  height:max-content;
+  font-size: clamp(1rem, 5vw + 1rem, 5rem) !important;
+  font-family: "Source Code Pro", monospace !important;
+  width: max-content;
+  --typewriterSpeed: 6s;
+  
+
+}

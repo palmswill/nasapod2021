@@ -24,7 +24,7 @@ const MainPage = ({ states,methods }) => {
         </Portal>
       }
       <div className="cover" style={portalOpen?{}:{display:"none"}}></div>
-      <Selection states={states} methods={methods} autoPlay={!portalOpen} />
+      <Selection photoList={states.photoList} likedList={states.likedList} setLikedList={methods.setLikedList} autoPlay={!portalOpen} />
       
       
     </main>

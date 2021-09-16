@@ -1,10 +1,10 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Image } from "semantic-ui-react";
 import "./imageCarousel.css";
 import { useHistory } from "react-router";
 import ButtonTab from "../ButtonTab/ButtonTab";
+import MediaLoader from "../MediaLoader/MediaLoader";
 
 const ImageCarousel = ({ likedList, photoList, setLikedList,autoPlay }) => {
   const history = useHistory();
@@ -19,17 +19,7 @@ const ImageCarousel = ({ likedList, photoList, setLikedList,autoPlay }) => {
           <h5 className="desktop">{date}</h5>
           <h2 className="title hightlight mobile" >{title}</h2>
           <h3 className="mobile">{date}</h3>
-          {media_type ===
-            "image"?(
-              <Image
-                onClick={() => history.push(`${process.env.PUBLIC_URL}/${date}`)}
-                className="carousel-image"
-                draggable={false}
-                style={{ display: "block" }}
-                src={url}
-                alt={title}
-              />
-            ):(<iframe src={url} title={title}/>)}
+          <MediaLoader url={url} tilte={title} media_type={media_type} onClick={()=>history.push(`${process.env.PUBLIC_URL}/${date}`)}/>
             <ButtonTab
             date={date}
                 onHeartClick={() =>

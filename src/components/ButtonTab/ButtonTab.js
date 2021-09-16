@@ -3,8 +3,10 @@ import { Menu, Button } from "semantic-ui-react";
 import Heart from "../heartIcon/Heart";
 import { useHistory } from "react-router";
 
-const ButtonTab = ({onHeartClick,heartLiked,closeButton,date}) => {
+const ButtonTab = ({ onHeartClick, heartLiked, closeButton, date }) => {
   const history = useHistory();
+
+
   return (
     <div className="button-tab">
       <Menu borderless className={"button-menu"}>
@@ -18,23 +20,43 @@ const ButtonTab = ({onHeartClick,heartLiked,closeButton,date}) => {
             />
           </h5>
         </Menu.Item>
+        <Menu.Item>
+          {closeButton ? (
+            <Button
+              className="close-button"
+              basic
+              inverted
+              onClick={() =>
+                navigator.clipboard.writeText(`process.env.PUBLIC_URL/${date}`)
+              }
+            >
+              Copy Link
+            </Button>
+          ) : (
+            <Button>what</Button>
+          )}
+        </Menu.Item>
+
         <Menu.Item position="right">
-          {closeButton?<Button
-            className="close-button"
-            basic
-            inverted
-            onClick={() => history.push(process.env.PUBLIC_URL)}
-          >
-            close
-          </Button>:<Button
-            className="close-button"
-            basic
-            inverted
-            onClick={() => history.push(`${process.env.PUBLIC_URL}/${date}`)}
-          >
-            details
-          </Button>}
-          
+          {closeButton ? (
+            <Button
+              className="close-button"
+              basic
+              inverted
+              onClick={() => history.push(process.env.PUBLIC_URL)}
+            >
+              close
+            </Button>
+          ) : (
+            <Button
+              className="close-button"
+              basic
+              inverted
+              onClick={() => history.push(`${process.env.PUBLIC_URL}/${date}`)}
+            >
+              details
+            </Button>
+          )}
         </Menu.Item>
       </Menu>
     </div>

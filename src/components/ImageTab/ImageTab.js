@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Image, Grid, Button, Menu } from "semantic-ui-react";
+import { Image, Grid, Loader,Dimmer} from "semantic-ui-react";
 import { getPhotoByDate } from "../../methods/getNasaAPOD";
 import { useHistory } from "react-router";
-import Heart from "../heartIcon/Heart";
+import MediaLoader from "../MediaLoader/MediaLoader";
 import ButtonTab from "../ButtonTab/ButtonTab";
 
 import "./imageTab.css";
@@ -29,7 +29,11 @@ const ImageTab = ({ targetDate, likedList, setLikedList }) => {
       return <div>Opps...Looks Like Something Went Wrong...</div>;
     }
     if (isLoading) {
-      return <div>Now Loading...</div>;
+      return (
+        <Dimmer style={{minHeight:"40vh"}}  active>
+          <Loader size={"massive"} />
+        </Dimmer>
+      );
     }
     if (!isLoading && !hasError) {
       const { date, hdurl, explanation, url, title, media_type } = photo;
@@ -66,7 +70,14 @@ const ImageTab = ({ targetDate, likedList, setLikedList }) => {
           <Grid className={"mobile-grid"}>
             <Grid.Column>
               {media_type === "image" ? (
-                <Image src={hdurl} />
+                <MediaLoader
+                  url={url}
+                  tilte={title}
+                  media_type={media_type}
+                  onClick={() =>
+                    history.push(`${process.env.PUBLIC_URL}/${date}`)
+                  }
+                />
               ) : (
                 <iframe src={url} title={title} />
               )}

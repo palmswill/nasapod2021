@@ -1,0 +1,31 @@
+.loading-container {
+  height: 100vh;
+  position:relative;
+  width: 100%;
+  position: fixed;
+  text-align: center;
+}
+
+.loading-container .centered {
+  position: relative;
+  width:max-content;
+  left:50%;
+  top:35%;
+  transform: translate(-50%, -50%);
+
+}
+
+
+
+.loading-container .centered>.loading{
+    margin: auto!important;
+    display:block;
+    width:max-content;
+
+}
+
+
+
+
+
+
