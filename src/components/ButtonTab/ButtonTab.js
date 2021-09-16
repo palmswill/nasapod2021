@@ -30,7 +30,7 @@ const ButtonTab = ({ onHeartClick, heartLiked, closeButton, date }) => {
                 navigator.clipboard.writeText(`process.env.PUBLIC_URL/${date}`)
               }
             >
-              Copy Link
+              Copy
             </Button>
           ) : (
             <Button>what</Button>
