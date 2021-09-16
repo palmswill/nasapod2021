@@ -10,7 +10,7 @@ const Selection = ({photoList,likedList,setLikedList,autoPlay}) => {
         return(
 
             <section id="selection" style={{minHeight:"30vh"}}>
-                <ImageCarousel setLikedList={setLikedList} likedList={likedList} photoList={photoList} autoPlay={autoPlay}/>
+                <ImageCarousel autoPlay setLikedList={setLikedList} likedList={likedList} photoList={photoList} autoPlay={autoPlay}/>
             </section>
         );
     },[likedList,photoList,autoPlay,setLikedList])

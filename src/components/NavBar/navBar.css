@@ -1,0 +1,24 @@
+.navbar {
+  font-size: clamp(1rem, 1vw + 1rem, 5rem) !important;
+  font-family: "Source Code Pro", monospace !important;
+  background-color: var(--green-tint) !important;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 2vh !important;
+  color:var(--green);
+}
+
+
+.navbar .item{
+    margin-left:2vw !important;
+    color:var(--green) !important;
+}
+
+@media (max-width:480px){
+    .navbar .item{
+        margin: auto !important;
+        
+    }
+  
+  }

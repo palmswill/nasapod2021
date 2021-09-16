@@ -1,6 +1,6 @@
 .carousel .card-container{
     margin:0px 10px;
-    padding:5px 5px;
+    padding:0px 5px;
     border: 1px solid var(--text-color); 
     border-radius:3px;
     
@@ -11,10 +11,7 @@
     min-height: 90px;
 }
 
-/* .carousel .card-container>*{
-    position:absolute;
 
-} */
 
 .carousel img,.carousel iframe{
     height:30vh;
@@ -34,7 +31,8 @@
 }
 @media (max-width:480px){
     .carousel img,.carousel iframe{
-        min-height:60vh;
+        min-height:50vh;
+        max-height:60vh;
         width:100%;
         object-fit:cover;
         

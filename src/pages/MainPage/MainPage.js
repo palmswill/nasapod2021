@@ -6,8 +6,9 @@ import { Portal } from "semantic-ui-react";
 import ImageTab from "../../components/ImageTab/ImageTab";
 
 import "./mainPage.css";
+import NavBar from "../../components/NavBar/NavBar";
 
-const MainPage = ({ states,methods }) => {
+const MainPage = ({ states, methods }) => {
   const { date } = useParams();
   const history = useHistory();
   const [portalOpen, setPortalOpen] = useState(false);
@@ -17,17 +18,35 @@ const MainPage = ({ states,methods }) => {
   }, [date]);
 
   return (
-    <main>
+    <>
+      <NavBar />
+      <main>
         {
-        <Portal open={portalOpen}  onClose={() => history.push("./")}>
-          {date?<ImageTab likedList={states.likedList} setLikedList={methods.setLikedList} targetDate={date} />:<></>}
-        </Portal>
-      }
-      <div className="cover" style={portalOpen?{}:{display:"none"}}></div>
-      <Selection photoList={states.photoList} likedList={states.likedList} setLikedList={methods.setLikedList} autoPlay={!portalOpen} />
-      
-      
-    </main>
+          <Portal open={portalOpen} onClose={() => history.push("./")}>
+            {date ? (
+              <ImageTab
+                likedList={states.likedList}
+                setLikedList={methods.setLikedList}
+                targetDate={date}
+              />
+            ) : (
+              <></>
+            )}
+          </Portal>
+        }
+        <div
+          className="cover"
+          style={portalOpen ? {} : { display: "none" }}
+        ></div>
+
+        <Selection
+          photoList={states.photoList}
+          likedList={states.likedList}
+          setLikedList={methods.setLikedList}
+          autoPlay={!portalOpen}
+        />
+      </main>
+    </>
   );
 };
 

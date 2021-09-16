@@ -13,7 +13,7 @@ const ButtonTab = ({ onHeartClick, heartLiked, closeButton, date }) => {
         <Menu.Item>
           <h5 className="secondary like-section">
             <Heart
-              size={"50px"}
+              size={"30px"}
               liked={heartLiked}
               // if liked, click to filter item out of likedlist, if not liked, click to add in the likedlist
               onClick={onHeartClick}
