@@ -32,8 +32,7 @@ const ButtonTab = ({ onHeartClick, heartLiked, closeButton, date }) => {
             >
               Copy
             </Button>
-          ) : (
-            <Button>what</Button>
+          ) : (""
           )}
         </Menu.Item>
 
