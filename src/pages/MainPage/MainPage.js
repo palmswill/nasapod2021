@@ -13,9 +13,6 @@ const MainPage = ({ states, methods }) => {
   const history = useHistory();
   const [portalOpen, setPortalOpen] = useState(false);
 
-
-
-
   useEffect(() => {
     setPortalOpen(date ? true : false);
   }, [date]);
@@ -25,9 +22,15 @@ const MainPage = ({ states, methods }) => {
       <NavBar />
       <main>
         {
-          <Portal open={portalOpen} onClose={() => history.push("./")}>
+          <Portal
+            closeOnDocumentClick={false}
+            open={portalOpen}
+            onClose={() => history.push("./")}
+          >
             {date ? (
               <ImageTab
+                photoList={states.photoList}
+                setPhotoList={methods.setPhotoList}
                 likedList={states.likedList}
                 setLikedList={methods.setLikedList}
                 targetDate={date}

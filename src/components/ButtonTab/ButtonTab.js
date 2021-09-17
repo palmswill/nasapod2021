@@ -1,11 +1,10 @@
 import React from "react";
-import { Menu, Button } from "semantic-ui-react";
+import { Menu, Button, Popup } from "semantic-ui-react";
 import Heart from "../heartIcon/Heart";
 import { useHistory } from "react-router";
 
 const ButtonTab = ({ onHeartClick, heartLiked, closeButton, date }) => {
   const history = useHistory();
-
 
   return (
     <div className="button-tab">
@@ -22,17 +21,13 @@ const ButtonTab = ({ onHeartClick, heartLiked, closeButton, date }) => {
         </Menu.Item>
         <Menu.Item>
           {closeButton ? (
-            <Button
-              className="close-button"
-              basic
-              inverted
-              onClick={() =>
-                navigator.clipboard.writeText(window.location.href)
-              }
-            >
-              Copy
-            </Button>
-          ) : (""
+            <Popup
+              content={window.location.href}
+              on="click"
+              trigger={<Button content="Share"className="close-button" basic inverted />}
+            />
+          ) : (
+            ""
           )}
         </Menu.Item>
 

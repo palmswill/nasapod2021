@@ -8,7 +8,7 @@ import ButtonTab from "../ButtonTab/ButtonTab";
 import "./imageTab.css";
 
 // The popout image tab that fetch photo data using the target date
-const ImageTab = ({ targetDate, likedList, setLikedList }) => {
+const ImageTab = ({ targetDate, likedList, setLikedList,photoList,setPhotoList }) => {
   const history = useHistory();
 
   const [photo, setPhoto] = useState({});
@@ -16,13 +16,23 @@ const ImageTab = ({ targetDate, likedList, setLikedList }) => {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
+    if (photoList.filter(photo=>photo.date!==targetDate).length){
+
+    }
     getPhotoByDate(targetDate)
       .then((res) => {
         setPhoto(res);
         setIsLoading(false);
+        // if site directly access by date and the date is not in the random photo list
+        //, add it in the forth element (shown firs on mobile)
+        if (!photoList.filter(photo=>photo.date===targetDate).length){
+          setPhotoList([...photoList.slice(0,4),res,...photoList.slice(5,10)])
+        }
       })
-      .catch((err) => setHasError(true));
-  }, [targetDate]);
+      .catch((err) => {
+      console.log(err)
+      setHasError(true)});
+  }, [targetDate,photoList,setPhotoList]);
 
   const handleResult = () => {
     if (hasError) {
