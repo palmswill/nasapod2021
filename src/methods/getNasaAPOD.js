@@ -15,5 +15,6 @@ export const getRandomAPOD = (numberofPhotos) => {
 };
 
 export const getPhotoByDate = (date) => {
+  console.log(date);
   return axios.get(`${nasaAPIUrl}${key}&date=${date}`).then((res) => res.data);
 };

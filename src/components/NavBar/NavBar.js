@@ -37,8 +37,8 @@ const NavBar = () => {
             onSelect={(calenderDate) => {
               history.push(
                 `./${calenderDate.getFullYear()}-${
-                  calenderDate.getMonth() + 1
-                }-${calenderDate.getDate()}`
+                  calenderDate.getMonth() + 1<10?"0"+(calenderDate.getMonth() + 1):calenderDate.getMonth() + 1
+                }-${ calenderDate.getDate()<10?"0"+(calenderDate.getDate() + 1):calenderDate.getDate()}`
               );
             }}
           />

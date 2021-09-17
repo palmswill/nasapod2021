@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Image, Grid, Loader,Dimmer} from "semantic-ui-react";
 import { getPhotoByDate } from "../../methods/getNasaAPOD";
 import { useHistory } from "react-router";
@@ -16,18 +17,17 @@ const ImageTab = ({ targetDate, likedList, setLikedList,photoList,setPhotoList }
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    if (photoList.filter(photo=>photo.date!==targetDate).length){
-
-    }
     getPhotoByDate(targetDate)
       .then((res) => {
         setPhoto(res);
         setIsLoading(false);
         // if site directly access by date and the date is not in the random photo list
-        //, add it in the forth element (shown firs on mobile)
+        //, add it in the forth element (shown first on mobile)
         if (!photoList.filter(photo=>photo.date===targetDate).length){
+          console.log("in")
           setPhotoList([...photoList.slice(0,4),res,...photoList.slice(5,10)])
         }
+        return axios.CancelToken.source().cancel();
       })
       .catch((err) => {
       console.log(err)
@@ -36,7 +36,13 @@ const ImageTab = ({ targetDate, likedList, setLikedList,photoList,setPhotoList }
 
   const handleResult = () => {
     if (hasError) {
-      return <div>Opps...Looks Like Something Went Wrong...</div>;
+      return <div>
+        <p>Opps...Looks Like Something Went Wrong...</p>
+        <ButtonTab
+                closeButton
+                date={targetDate}
+               />
+        </div>;
     }
     if (isLoading) {
       return (
