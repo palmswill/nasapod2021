@@ -27,7 +27,7 @@ const ButtonTab = ({ onHeartClick, heartLiked, closeButton, date }) => {
               basic
               inverted
               onClick={() =>
-                navigator.clipboard.writeText(`process.env.PUBLIC_URL/${date}`)
+                navigator.clipboard.writeText(window.location.href)
               }
             >
               Copy

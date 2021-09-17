@@ -55,6 +55,7 @@ const ImageTab = ({ targetDate, likedList, setLikedList }) => {
               <h5 className="secondary explanation">{explanation}</h5>
               <ButtonTab
                 closeButton
+                date={date}
                 onHeartClick={() =>
                   setLikedList(
                     liked
@@ -86,6 +87,7 @@ const ImageTab = ({ targetDate, likedList, setLikedList }) => {
               <h3 className="secondary explanation">{explanation}</h3>
               <ButtonTab
                 closeButton
+                date={date}
                 onHeartClick={() =>
                   setLikedList(
                     liked
