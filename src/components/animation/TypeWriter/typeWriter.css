@@ -6,7 +6,7 @@
   font-size: clamp(1rem, 5vw + 1rem, 5rem) !important;
   font-family: "Source Code Pro", monospace !important;
   width: max-content;
-  --typewriterSpeed: 6s;
+  --typewriterSpeed: 2s;
 }
 
 .typewriter-text::before,

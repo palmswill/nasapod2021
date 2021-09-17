@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+
+
 .navbar {
   font-size: clamp(1rem, 1vw + 1rem, 5rem) !important;
-  font-family: "Source Code Pro", monospace !important;
+  font-family: 'Courgette', cursive !important;
   background-color: var(--green-tint) !important;
   margin-top: 0 !important;
   margin-left: 0 !important;
@@ -10,9 +14,19 @@
 }
 
 
-.navbar .item{
+.navbar .title{
     margin-left:2vw !important;
     color:var(--green) !important;
+}
+
+.navbar .date-picker-box{
+    width:clamp(150px,40vw,200px) !important;
+    font-size:clamp(5px,2vw,20px) !important;
+    border-radius:10px;
+    color:var(--green);
+    font-family: 'Courgette', cursive !important;
+    background-color:var(--background);
+    
 }
 
 @media (max-width:480px){

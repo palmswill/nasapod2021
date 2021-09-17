@@ -35,7 +35,6 @@ const StateWrapper = () => {
     setLikedList,
   };
 
-  console.log(process.env.PUBLIC_URL);
 
   useEffect(() => {
     setTimeout(() => {

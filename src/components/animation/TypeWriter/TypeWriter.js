@@ -18,7 +18,7 @@ const TypeWriter = ({
       }`}
       style={{
         "--typewriterCharacters": infinite ? text.length + 1 : text.length,
-        "--typewriterSpeed": speed,
+        // "--typewriterSpeed": speed,
         "--background": background,
         fontSize: size,
         "--playType": infinite ? "infinite" : "forwards",

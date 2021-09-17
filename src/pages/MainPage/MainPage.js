@@ -13,6 +13,9 @@ const MainPage = ({ states, methods }) => {
   const history = useHistory();
   const [portalOpen, setPortalOpen] = useState(false);
 
+
+
+
   useEffect(() => {
     setPortalOpen(date ? true : false);
   }, [date]);
