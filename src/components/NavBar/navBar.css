@@ -34,5 +34,8 @@
         margin: auto !important;
         
     }
+    .navbar .date-picker{
+        display:none !important;
+    }
   
   }
