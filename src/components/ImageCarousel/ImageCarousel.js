@@ -40,23 +40,23 @@ const ImageCarousel = ({ likedList, photoList, setLikedList,autoPlay }) => {
     desktop: {
       breakpoint: {
         max: 3000,
-        min: 1024,
+        min: 1231,
       },
       items: 5,
     },
     mobile: {
       breakpoint: {
-        max: 464,
+        max: 759,
         min: 0,
       },
       items: 1,
     },
     tablet: {
       breakpoint: {
-        max: 1024,
-        min: 464,
+        max: 1231,
+        min: 759,
       },
-      items: 1,
+      items: 3,
     },
   };
 

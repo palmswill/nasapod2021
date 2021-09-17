@@ -22,6 +22,7 @@ html {
 
 html {
   font-size: 28px;
+  min-width:30px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -38,12 +39,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.root,
+.App
+{
+  width:100%;
+  height:100%;
+
+
+}
+
 /* colour theme during dark mode */
 .light-mode,
 .dark-mode {
   position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 .dark-mode {

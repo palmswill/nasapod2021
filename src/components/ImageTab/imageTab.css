@@ -39,9 +39,13 @@
 
 .image-tab .button-menu{
   background-color:transparent !important;
-  width:100%;
+  width:100% !important;
   border:none !important;
 
+}
+
+.image-tab .button-menu .item{
+  padding:.92857143em 1% !important;
 }
 
 .image-tab .mobile-grid{
