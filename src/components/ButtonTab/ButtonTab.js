@@ -22,9 +22,11 @@ const ButtonTab = ({ onHeartClick, heartLiked, closeButton, date }) => {
         <Menu.Item>
           {closeButton ? (
             <Popup
+            position={"top center"}
               content={window.location.href}
               on="click"
               trigger={<Button content="Share"className="close-button" basic inverted />}
+              style={{maxWidth:"90vw",wordWrap:"break-word"}}
             />
           ) : (
             ""

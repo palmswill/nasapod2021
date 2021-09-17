@@ -64,7 +64,7 @@ const ImageCarousel = ({ likedList, photoList, setLikedList,autoPlay }) => {
     <Carousel
       additionalTransfrom={0}
       arrows
-      autoPlay={false}
+      autoPlay={autoPlay}
       customTransition="all 1s linear"
       autoPlaySpeed={3000}
       className="carousel"

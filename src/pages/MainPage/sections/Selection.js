@@ -1,7 +1,7 @@
 import React,{useMemo} from 'react';
 import ImageCarousel from '../../../components/ImageCarousel/ImageCarousel';
 
-const Selection = ({photoList,likedList,setLikedList}) => {
+const Selection = ({photoList,likedList,setLikedList,autoPlay}) => {
     // const {photoList,likedList}=states;
     // const {setLikedList}=methods
     
@@ -10,10 +10,10 @@ const Selection = ({photoList,likedList,setLikedList}) => {
         return(
 
             <section id="selection" style={{minHeight:"30vh"}}>
-                <ImageCarousel autoPlay setLikedList={setLikedList} likedList={likedList} photoList={photoList} />
+                <ImageCarousel autoPlay={autoPlay} setLikedList={setLikedList} likedList={likedList} photoList={photoList} />
             </section>
         );
-    },[likedList,photoList,setLikedList])
+    },[likedList,photoList,setLikedList,autoPlay])
 }
 
 export default Selection;

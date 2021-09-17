@@ -54,6 +54,7 @@ const StateWrapper = () => {
   }, []);
 
   return (
+    <>
     <div className={isLightMode ? "light-mode" : "dark-mode"}>
       <Router>
         <Route
@@ -72,6 +73,7 @@ const StateWrapper = () => {
         {/* <Route exact path="/:date?" children={<LoadingPage/>}/> */}
       </Router>
     </div>
+    </>
   );
 };
 
